@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Convert - Modern Converter</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nexus<span>Convert</span></h1>
+            <p>Unit & Currency Real-time Converter</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('units')">Units</button>
+            <button class="tab-btn" onclick="openTab('currency')">Currency</button>
+        </div>
+
+        <div id="units" class="tab-content active">
+            <div class="input-group">
+                <label>Value</label>
+                <input type="number" id="unitInput" placeholder="Enter value" oninput="convertUnits()">
+            </div>
+            <div class="controls">
+                <select id="unitType" onchange="updateUnitOptions()">
+                    <option value="length">Length (m to km)</option>
+                    <option value="weight">Weight (kg to g)</option>
+                    <option value="temp">Temp (C to F)</option>
+                </select>
+            </div>
+            <div class="result-box">
+                <p>Result: <span id="unitResult">0</span></p>
+            </div>
+        </div>
+
+        <div id="currency" class="tab-content">
+            <div class="input-group">
+                <label>Amount (USD)</label>
+                <input type="number" id="currInput" placeholder="Enter USD" oninput="convertCurrency()">
+            </div>
+            <div class="controls">
+                <select id="currType">
+                    <option value="LKR">Sri Lankan Rupee (LKR)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                </select>
+            </div>
+            <div class="result-box">
+                <p>Converted: <span id="currResult">0</span></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Build Status: <span class="badge">Passing</span></p>
+        </footer>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
